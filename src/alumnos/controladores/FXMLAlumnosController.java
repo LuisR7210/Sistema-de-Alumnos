@@ -1,9 +1,11 @@
-/** Título
+/** Controlador de Interfaz de Alumnos
  *
  * @author Luis Roberto Herrera Hernández
- * @version 1.0, mm/dd/aa
+ * @version 1.0, 03/21/19
  *
- * Descripción: aqui va la descripción
+ * Descripción: aqui se controla los elementos de la interfaz de Alumnos y se definen las funciones 
+ * de dichos elementos. Además se encuentran aquí definidas las funciones CRUD de la lista de 
+ * alumnos.
  */
 package alumnos.controladores;
 
@@ -101,6 +103,8 @@ public class FXMLAlumnosController implements Initializable {
   @FXML
   private Menu menu_alumnos;
   @FXML
+  private MenuItem menu_nuevo;
+  @FXML
   private MenuItem menu_cargar;
   @FXML
   private MenuItem menu_guardar;
@@ -112,7 +116,7 @@ public class FXMLAlumnosController implements Initializable {
   private Alert alerta;
   private int index_modificar=-1;
   
-  private ObservableList<Alumno> estudiantes = FXCollections.observableArrayList();;
+  private ObservableList<Alumno> estudiantes = FXCollections.observableArrayList();
 
   public FXMLAlumnosController() {
   }
@@ -124,6 +128,8 @@ public class FXMLAlumnosController implements Initializable {
     alumnos_columna_nombre.setCellValueFactory(cellData -> cellData.getValue().getNombreProperty());
     alumnos_columna_paterno.setCellValueFactory(cellData -> cellData.getValue().getPaternoProperty());
     alumnos_columna_materno.setCellValueFactory(cellData -> cellData.getValue().getMaternoProperty());
+    tabla_alumnos.setPlaceholder(new Label(" No hay alumnos registrados."));
+    tabla_alumnos.setItems(estudiantes);
   }
 
   @FXML
@@ -248,25 +254,38 @@ public class FXMLAlumnosController implements Initializable {
 
   @FXML
   private void cargarAlumnos(ActionEvent event) {
-    conn= new Conexion();
-    try{
+    alerta = new Alert(AlertType.CONFIRMATION);
+    alerta.setTitle("Confirmación");
+    alerta.setHeaderText("¿Estás seguro de cargar la lista de alumnos de la base de datos?");
+    alerta.setContentText("La lista se sobreescribirá en la lista actual. Esta acción no podra deshacerse.");
+    Optional<ButtonType> resultado = alerta.showAndWait();
+    if (resultado.get() == ButtonType.OK){
+      conn= new Conexion();
       estudiantes = sql_alumnos.crearLista(conn.getConexion());
-    } catch (SQLException se){
-      System.out.println("Error al crear la lista");
+      conn.desconectar();
+      tabla_alumnos.setItems(estudiantes);
     }
-    conn.desconectar();
-    tabla_alumnos.setItems(estudiantes);
   }
+    
 
   @FXML
   private void guardarAlumnos(ActionEvent event) {
     conn= new Conexion();
-    try{
-      sql_alumnos.guardarLista(estudiantes, conn.getConexion());
-    } catch (SQLException se){
-      System.out.println("Error al guardar la lista");
-    }
+    sql_alumnos.guardarLista(estudiantes, conn.getConexion());
     conn.desconectar();
+  }
+
+  @FXML
+  private void crearListaNueva(ActionEvent event) {
+    alerta = new Alert(AlertType.CONFIRMATION);
+    alerta.setTitle("Confirmación");
+    alerta.setHeaderText("¿Estás seguro de crear una nueva lista de alumnos?");
+    alerta.setContentText("La nueva lista de sobreescribirá en la lista actual. Esta acción no podra deshacerse.");
+    Optional<ButtonType> resultado = alerta.showAndWait();
+    if (resultado.get() == ButtonType.OK){
+      estudiantes = FXCollections.observableArrayList();
+      tabla_alumnos.setItems(estudiantes);
+    }
   }
   
 }

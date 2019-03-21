@@ -1,9 +1,9 @@
-/** Título
+/** Interfaz DAO de Alumnos
  *
  * @author Luis Roberto Herrera Hernández
- * @version 1.0, mm/dd/aa
+ * @version 1.0, 03/21/19
  *
- * Descripción: aqui va la descripción
+ * Descripción: aqui se crean los métodos que necesitaran acceso a la base de datos.
  */
 package alumnos.DAO.Alumnos;
 
@@ -17,8 +17,24 @@ import javafx.collections.ObservableList;
  */
 public interface IAlumnosDAO {
   
+  /**
+   *
+   * @param conexion
+   * @return ObservableList
+   */
   public ObservableList<Alumno> crearLista(Connection conexion);
+
+  /**
+   *
+   * @param conexion
+   */
   public void eliminarTabla(Connection conexion);
+
+  /**
+   *
+   * @param estudiantes
+   * @param conexion
+   */
   public void guardarLista(ObservableList<Alumno> estudiantes, Connection conexion);
   
 }

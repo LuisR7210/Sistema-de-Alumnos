@@ -1,9 +1,9 @@
-/** Título
+/** DAO de Alumnos
  *
  * @author Luis Roberto Herrera Hernández
- * @version 1.0, mm/dd/aa
+ * @version 1.0, 03/21/19
  *
- * Descripción: aqui va la descripción
+ * Descripción: esta clase de 
  */
 package alumnos.DAO.Alumnos;
 
@@ -15,13 +15,19 @@ import alumnos.modelos.Alumno;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class AlumnosDAO {
+public class AlumnosDAO implements IAlumnosDAO{
   
    private final String tabla = "alumno";
    
    public AlumnosDAO(){}
    
-   public ObservableList<Alumno> crearLista(Connection conexion) throws SQLException{
+  /**
+   *
+   * @param conexion
+   * @return
+   */
+  @Override
+   public ObservableList<Alumno> crearLista(Connection conexion){
       ObservableList<Alumno> estudiantes = FXCollections.observableArrayList();
       try{
          PreparedStatement consulta = conexion.prepareStatement("SELECT* FROM " + this.tabla + " ORDER BY a_paterno");
@@ -37,9 +43,15 @@ public class AlumnosDAO {
       return estudiantes;
    }
   
-   public void guardarLista(ObservableList<Alumno> estudiantes, Connection conexion) throws SQLException{
-     eliminarTabla(conexion);
+  /**
+   *
+   * @param estudiantes
+   * @param conexion
+   */
+  @Override
+   public void guardarLista(ObservableList<Alumno> estudiantes, Connection conexion){
      try{
+       eliminarTabla(conexion);
          PreparedStatement guardar = conexion.prepareStatement("insert into " +this.tabla+ " values (?, ?, ?, ?)");
          for(int i=0; i<estudiantes.size(); i++){
            guardar.setString(1, estudiantes.get(i).getMatricula());
@@ -54,7 +66,12 @@ public class AlumnosDAO {
       }
    }
    
-   public void eliminarTabla(Connection conexion) throws SQLException{
+  /**
+   *
+   * @param conexion
+   */
+  @Override
+   public void eliminarTabla(Connection conexion){
      try{
          PreparedStatement eliminar = conexion.prepareStatement("DELETE FROM "+this.tabla);
          eliminar.executeUpdate();

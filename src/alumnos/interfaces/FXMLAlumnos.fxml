@@ -70,10 +70,11 @@
     <Label fx:id="label_nombre" font="$x4" labelFor="$boton_agregar" layoutX="913.0" layoutY="275.0" prefHeight="19.0" prefWidth="125.0" text="" textFill="$x5" textOverrun="ELLIPSIS" />
     <Label fx:id="label_paterno" font="$x4" labelFor="$boton_agregar" layoutX="913.0" layoutY="351.0" prefHeight="19.0" prefWidth="125.0" text="" textFill="$x5" textOverrun="ELLIPSIS" />
     <Label fx:id="label_materno" font="$x4" labelFor="$boton_agregar" layoutX="913.0" layoutY="419.0" prefHeight="19.0" prefWidth="125.0" text="" textFill="$x5" textOverrun="ELLIPSIS" />
-    <MenuBar id="menu" layoutX="189.0" layoutY="137.0" prefWidth="-1.0" useSystemMenuBar="false">
+    <MenuBar id="menu" layoutX="214.0" layoutY="137.0" prefWidth="-1.0" useSystemMenuBar="false">
       <menus>
         <Menu mnemonicParsing="false" text="Alumnos" fx:id="menu_alumnos">
           <items>
+            <MenuItem mnemonicParsing="false" onAction="#crearListaNueva" text="Nuevo" fx:id="menu_nuevo" />
             <MenuItem mnemonicParsing="false" onAction="#cargarAlumnos" text="Gargar" fx:id="menu_cargar" />
             <MenuItem mnemonicParsing="false" onAction="#guardarAlumnos" text="Guardar" fx:id="menu_guardar" />
           </items>
