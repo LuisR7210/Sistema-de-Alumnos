@@ -12,15 +12,15 @@
 
 <AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1100.0" visible="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="alumnos.controladores.FXMLAlumnosController">
   <children>
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="1.0" layoutY="0.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="1100.0" />
-    <Rectangle arcHeight="5.0" arcWidth="5.0" height="50.0" layoutX="1.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" width="1100.0">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="611.0" layoutX="-1.0" layoutY="-1.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="1105.0" x="-1.0" y="-1.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" height="50.0" layoutX="1.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1102.0">
       <fill>
         <Color blue="0.616" green="0.322" red="0.094" fx:id="x1" />
       </fill>
     </Rectangle>
     <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
       <image>
-        <Image url="@../iconos/icono.png" />
+        <Image url="@../iconos/icono_alumnos.png" />
       </image>
     </ImageView>
     <Label layoutX="459.0" layoutY="61.0" text="Alumnos" textFill="WHITE">
@@ -28,20 +28,20 @@
         <Font name="Bauhaus 93" size="50.0" />
       </font>
     </Label>
-    <Button fx:id="boton_salir" layoutX="1007.0" layoutY="14.0" mnemonicParsing="false" onAction="#salir" prefWidth="80.0" text="Salir" textFill="$x1">
+    <Button fx:id="boton_salir" layoutX="1007.0" layoutY="16.0" mnemonicParsing="false" onAction="#salir" prefWidth="80.0" text="Salir" textFill="$x1">
       <font>
         <Font name="Arial Bold" size="18.0" fx:id="x3" />
       </font>
     </Button>
-    <TableView fx:id="tabla_alumnos" layoutX="90.0" layoutY="187.0" prefHeight="300.0" prefWidth="577.0">
+    <TableView fx:id="tabla_alumnos" layoutX="90.0" layoutY="187.0" prefHeight="300.0" prefWidth="580.0">
       <columns>
-        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="144.0" sortable="true" text="Matrícula" fx:id="alumnos_columna_matricula" />
-        <TableColumn editable="true" prefWidth="144.0" sortType="ASCENDING" sortable="true" text="Nombre" fx:id="alumnos_columna_nombre" />
-        <TableColumn minWidth="100.0" prefWidth="144.0" sortable="true" text="Apellido Paterno" fx:id="alumnos_columna_paterno" />
-        <TableColumn prefWidth="143.0" sortable="true" text="Apellido Materno" fx:id="alumnos_columna_materno" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="110.0" sortable="true" text="Matrícula" fx:id="alumnos_columna_matricula" />
+        <TableColumn editable="true" prefWidth="180.0" sortType="ASCENDING" sortable="true" text="Nombre" fx:id="alumnos_columna_nombre" />
+        <TableColumn minWidth="100.0" prefWidth="145.0" sortable="true" text="Apellido Paterno" fx:id="alumnos_columna_paterno" />
+        <TableColumn prefWidth="144.0" sortable="true" text="Apellido Materno" fx:id="alumnos_columna_materno" />
       </columns>
     </TableView>
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffcccc" height="300.0" layoutX="717.0" layoutY="187.0" stroke="WHITE" strokeType="INSIDE" width="335.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffcccc" height="300.0" layoutX="717.0" layoutY="187.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="335.0" />
     <Label layoutX="732.0" layoutY="201.0" text="Matrícula:">
       <font>
         <Font name="Arial" size="16.0" fx:id="x2" />
@@ -54,11 +54,11 @@
     <TextField fx:id="tf_paterno" layoutX="732.0" layoutY="376.0" prefHeight="29.0" prefWidth="306.0" />
     <Label font="$x2" layoutX="732.0" layoutY="419.0" text="Apellido materno:" />
     <TextField fx:id="tf_materno" layoutX="732.0" layoutY="444.0" prefHeight="29.0" prefWidth="306.0" />
-    <Button fx:id="boton_eliminar" font="$x3" layoutX="466.0" layoutY="504.0" mnemonicParsing="false" onAction="#eliminar" prefWidth="125.0" text="Eliminar" textFill="$x1" />
     <Button fx:id="boton_agregar" font="$x3" layoutX="823.0" layoutY="504.0" mnemonicParsing="false" onAction="#agregar" prefWidth="125.0" text="Agregar" textFill="$x1" />
     <Button fx:id="boton_editar" font="$x3" layoutX="164.0" layoutY="504.0" mnemonicParsing="false" onAction="#modificar" prefWidth="125.0" text="Editar" textFill="$x1" />
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="25.0" layoutX="1.0" layoutY="584.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1100.0" />
-    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#28ad57" height="15.0" layoutX="1.0" layoutY="580.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1100.0" />
+    <Button fx:id="boton_eliminar" font="$x3" layoutX="466.0" layoutY="504.0" mnemonicParsing="false" onAction="#eliminar" prefWidth="125.0" text="Eliminar" textFill="$x1" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="25.0" layoutX="-7.0" layoutY="584.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1110.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#28ad57" height="15.0" layoutX="-7.0" layoutY="557.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1110.0" />
     <Label fx:id="label_matricula" labelFor="$boton_agregar" layoutX="913.0" layoutY="200.0" prefHeight="19.0" prefWidth="125.0" text="" textOverrun="ELLIPSIS">
       <font>
         <Font name="System Bold Italic" size="12.0" fx:id="x4" />
@@ -81,5 +81,11 @@
         </Menu>
       </menus>
     </MenuBar>
+    <Button fx:id="boton_inicio" layoutX="189.0" layoutY="16.0" mnemonicParsing="false" onAction="#abrirVentanaPrincipal" prefWidth="125.0" text="Inicio">
+      <font>
+        <Font name="Times New Roman Bold" size="18.0" fx:id="x6" />
+      </font>
+    </Button>
+    <Button fx:id="boton_materias" font="$x6" layoutX="314.0" layoutY="16.0" mnemonicParsing="false" onAction="#abrirVentanaMaterias" prefWidth="125.0" text="Materias" />
   </children>
 </AnchorPane>

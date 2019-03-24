@@ -1,3 +1,8 @@
+/**     
+ * Copyright (c) 2018-2019 LR
+ * La venta de este archivo por cualquier medio está estrictamente prohibida.
+ * Todos los derechos reservados.
+ */
 /** Título
  *
  * @author Luis Roberto Herrera Hernández
@@ -25,7 +30,7 @@ public class Conexion {
   private static final String PASSWORD = "hdks729";
   private static final String HOST = "localhost";
   private static final String BD = "alumnos";
-  private static final String URL = "jdbc:mysql://"+HOST+"/"+BD;
+  private static final String URL = "jdbc:mysql://"+HOST+"/"+BD+"?useSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC";
   
   public Conexion(){
     conn=null;

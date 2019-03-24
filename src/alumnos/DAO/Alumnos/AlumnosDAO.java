@@ -1,3 +1,8 @@
+/**     
+ * Copyright (c) 2018-2019 LR
+ * La venta de este archivo por cualquier medio está estrictamente prohibida.
+ * Todos los derechos reservados.
+ */
 /** DAO de Alumnos
  *
  * @author Luis Roberto Herrera Hernández

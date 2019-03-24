@@ -11,9 +11,9 @@
  *
  * Descripción: aqui se crean los métodos que necesitaran acceso a la base de datos.
  */
-package alumnos.DAO.Alumnos;
+package alumnos.DAO.Materias;
 
-import alumnos.modelos.Alumno;
+import alumnos.modelos.Materia;
 import java.sql.Connection;
 import javafx.collections.ObservableList;
 
@@ -21,14 +21,14 @@ import javafx.collections.ObservableList;
  *
  * @author Otros
  */
-public interface IAlumnosDAO {
+public interface IMateriasDAO {
   
   /**
    *
    * @param conexion
    * @return ObservableList
    */
-  public ObservableList<Alumno> crearLista(Connection conexion);
+  public ObservableList<Materia> crearLista(Connection conexion);
 
   /**
    *
@@ -38,9 +38,9 @@ public interface IAlumnosDAO {
 
   /**
    *
-   * @param estudiantes
+   * @param experencias_educativas
    * @param conexion
    */
-  public void guardarLista(ObservableList<Alumno> estudiantes, Connection conexion);
+  public void guardarLista(ObservableList<Materia> experencias_educativas, Connection conexion);
   
 }

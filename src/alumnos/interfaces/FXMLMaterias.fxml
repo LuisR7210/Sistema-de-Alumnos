@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1100.0" visible="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="alumnos.controladores.FXMLMateriasController">
+  <children>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="609.0" layoutX="0.0" layoutY="0.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="1101.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" height="50.0" layoutX="0.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1101.0">
+      <fill>
+        <Color blue="0.616" green="0.322" red="0.094" fx:id="x1" />
+      </fill>
+    </Rectangle>
+    <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+        <Image url="@../iconos/icono_materias.png" />
+      </image>
+    </ImageView>
+    <Label layoutX="291.0" layoutY="61.0" text="Experencias educativas" textFill="WHITE">
+      <font>
+        <Font name="Bauhaus 93" size="50.0" />
+      </font>
+    </Label>
+    <Button fx:id="boton_salir" layoutX="1007.0" layoutY="16.0" mnemonicParsing="false" onAction="#salir" prefWidth="80.0" text="Salir" textFill="$x1">
+      <font>
+        <Font name="Arial Bold" size="18.0" fx:id="x3" />
+      </font>
+    </Button>
+    <TableView id="tabla_alumnos" fx:id="tabla_materias" layoutX="89.0" layoutY="187.0" prefHeight="300.0" prefWidth="580.0">
+      <columns>
+        <TableColumn editable="true" maxWidth="5000.0" minWidth="10.0" prefWidth="250.0" sortType="ASCENDING" sortable="true" text="Nombre" fx:id="materias_columna_nombre" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="90.0" sortable="true" text="Horas teoría" fx:id="materias_columna_horas_teoria" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="90.0" sortable="true" text="Horas práctica" fx:id="materias_columna_horas_practica" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="60.0" sortable="true" text="Créditos" fx:id="materias_columna_creditos" />
+        <TableColumn prefWidth="89.0" text="NRC" fx:id="materias_columna_nrc" />
+      </columns>
+    </TableView>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffcccc" height="300.0" layoutX="717.0" layoutY="187.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="335.0" />
+    <Label layoutX="732.0" layoutY="201.0" text="Nombre:">
+      <font>
+        <Font name="Arial" size="16.0" fx:id="x2" />
+      </font>
+    </Label>
+    <TextField id="tf_matricula" fx:id="tf_nombre" layoutX="732.0" layoutY="226.0" prefHeight="29.0" prefWidth="306.0" />
+    <Label font="$x2" layoutX="864.0" layoutY="276.0" text="Horas" />
+    <Label font="$x2" layoutX="774.0" layoutY="295.0" text="Teoría:" />
+    <TextField id="tf_paterno" fx:id="tf_horas_teoria" layoutX="732.0" layoutY="320.0" prefHeight="29.0" prefWidth="132.0" />
+    <Label font="$x2" layoutX="941.0" layoutY="295.0" text="Práctica:" />
+    <TextField id="tf_paterno" fx:id="tf_horas_practica" layoutX="906.0" layoutY="320.0" prefHeight="29.0" prefWidth="132.0" />
+    <Label font="$x2" layoutX="767.0" layoutY="395.0" prefWidth="-1.0" text="Créditos:" />
+    <TextField id="tf_paterno" fx:id="tf_creditos" layoutX="732.0" layoutY="422.0" prefHeight="29.0" prefWidth="132.0" />
+    <Label font="$x2" layoutX="952.0" layoutY="395.0" text="NRC:" />
+    <TextField id="tf_materno" fx:id="tf_nrc" layoutX="906.0" layoutY="422.0" prefHeight="29.0" prefWidth="132.0" />
+    <Label id="label_matricula" fx:id="label_nombre" layoutX="907.0" layoutY="200.0" prefHeight="19.0" prefWidth="132.0" text="" textOverrun="ELLIPSIS">
+      <font>
+        <Font name="System Bold Italic" size="12.0" fx:id="x4" />
+      </font>
+      <labelFor>
+        <Button fx:id="boton_agregar" font="$x3" layoutX="823.0" layoutY="504.0" mnemonicParsing="false" onAction="#agregar" prefWidth="125.0" text="Agregar" textFill="$x1" />
+      </labelFor>
+      <textFill>
+        <Color blue="0.000" green="0.192" red="0.800" fx:id="x5" />
+      </textFill>
+    </Label>
+    <Label id="label_paterno" fx:id="label_horas_teoria" font="$x4" layoutX="732.0" layoutY="349.0" prefHeight="19.0" prefWidth="132.0" text="" textFill="$x5" textOverrun="ELLIPSIS">
+      <labelFor>
+        <Button id="boton_agregar" font="$x3" layoutX="823.0" layoutY="504.0" mnemonicParsing="false" onAction="#agregar" prefWidth="125.0" text="Agregar" textFill="$x1" />
+      </labelFor>
+    </Label>
+    <Label id="label_paterno" fx:id="label_horas_practica" font="$x4" labelFor="$boton_agregar" layoutX="906.0" layoutY="349.0" prefHeight="19.0" prefWidth="132.0" text="" textFill="$x5" textOverrun="ELLIPSIS" />
+    <Label id="label_paterno" fx:id="label_creditos" font="$x4" layoutX="733.0" layoutY="451.0" prefHeight="19.0" prefWidth="132.0001220703125" text="" textFill="$x5" textOverrun="ELLIPSIS">
+      <labelFor>
+        <Button id="boton_agregar" font="$x3" layoutX="823.0" layoutY="504.0" mnemonicParsing="false" onAction="#agregar" prefWidth="125.0" text="Agregar" textFill="$x1" />
+      </labelFor>
+    </Label>
+    <Label id="label_paterno" fx:id="label_nrc" font="$x4" layoutX="906.0" layoutY="451.0" prefHeight="19.0" prefWidth="132.0" text="" textFill="$x5" textOverrun="ELLIPSIS">
+      <labelFor>
+        <Button id="boton_agregar" font="$x3" layoutX="823.0" layoutY="504.0" mnemonicParsing="false" onAction="#agregar" prefWidth="125.0" text="Agregar" textFill="$x1" />
+      </labelFor>
+    </Label>
+    <fx:reference source="boton_agregar" />
+    <Button fx:id="boton_editar" font="$x3" layoutX="164.0" layoutY="504.0" mnemonicParsing="false" onAction="#modificar" prefWidth="125.0" text="Editar" textFill="$x1" />
+    <Button fx:id="boton_eliminar" font="$x3" layoutX="478.0" layoutY="504.0" mnemonicParsing="false" onAction="#eliminar" prefWidth="125.0" text="Eliminar" textFill="$x1" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#28ad57" height="15.0" layoutX="0.0" layoutY="560.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1101.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="25.0" layoutX="0.0" layoutY="584.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1101.0" />
+    <MenuBar id="menu" layoutX="214.0" layoutY="137.0" prefWidth="-1.0" useSystemMenuBar="false">
+      <menus>
+        <Menu mnemonicParsing="false" text="Materias" fx:id="menu_alumnos">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#crearListaNueva" text="Nuevo" fx:id="menu_nuevo" />
+            <MenuItem mnemonicParsing="false" onAction="#cargarMaterias" text="Gargar" fx:id="menu_cargar" />
+            <MenuItem mnemonicParsing="false" onAction="#guardarMaterias" text="Guardar" fx:id="menu_guardar" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <Button fx:id="boton_inicio" layoutX="189.0" layoutY="16.0" mnemonicParsing="false" onAction="#abrirVentanaPrincipal" prefWidth="125.0" text="Inicio">
+      <font>
+        <Font name="Times New Roman Bold" size="18.0" fx:id="x6" />
+      </font>
+    </Button>
+    <Button id="boton_materias" fx:id="boton_alumnos" font="$x6" layoutX="314.0" layoutY="16.0" mnemonicParsing="false" onAction="#abrirVentanaAlumnos" prefWidth="125.0" text="Alumnos" />
+  </children>
+</AnchorPane>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1100.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="alumnos.controladores.FXMLPrincipalController">
+  <children>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="600.0" layoutX="0.0" layoutY="0.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1100.0" />
+    <Label layoutX="78.0" layoutY="91.0" text="Sistema de Administración de Alumnos">
+      <font>
+        <Font name="Bauhaus 93" size="56.0" />
+      </font>
+    </Label>
+    <Button layoutX="224.0" layoutY="286.0" mnemonicParsing="false" onAction="#abrirVentanaAlumnos" text="ALUMNOS">
+      <font>
+        <Font name="OCR A Extended" size="38.0" fx:id="x1" />
+      </font>
+    </Button>
+    <Button font="$x1" layoutX="669.0" layoutY="279.0" mnemonicParsing="false" onAction="#abrirVentanaMaterias" text="MATERIAS" />
+    <Button font="$x1" layoutX="461.0" layoutY="455.0" mnemonicParsing="false" onAction="#salir" text="Salir" />
+  </children>
+</AnchorPane>
