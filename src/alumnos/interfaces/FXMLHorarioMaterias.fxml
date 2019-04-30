@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1100.0" visible="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="alumnos.controladores.FXMLHorarioMateriasController">
+  <children>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="609.0" layoutX="2.0" layoutY="0.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="1101.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" height="50.0" layoutX="0.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1101.0">
+      <fill>
+        <Color blue="0.616" green="0.322" red="0.094" fx:id="x1" />
+      </fill>
+    </Rectangle>
+    <Label layoutX="430.0" layoutY="61.0" text="Horarios EE" textFill="WHITE">
+      <font>
+        <Font name="Bauhaus 93" size="50.0" />
+      </font>
+    </Label>
+    <TableView id="tabla_alumnos" fx:id="tabla_horarios" layoutX="50.0" layoutY="160.0" prefHeight="200.0" prefWidth="1000.0">
+      <columns>
+        <TableColumn prefWidth="50.0" text="NRC" fx:id="materias_columna_nrc" />
+        <TableColumn editable="true" maxWidth="5000.0" minWidth="10.0" prefWidth="200.0" sortType="ASCENDING" sortable="true" text="Profesor" fx:id="materias_columna_profesor" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Lunes">
+          <columns>
+            <TableColumn prefWidth="42.0" text="Inicio" fx:id="materias_columna_lunes_inicio" />
+            <TableColumn prefWidth="42.0" text="Fin" fx:id="materias_columna_lunes_fin" />
+            <TableColumn prefWidth="41.0" text="Salón" fx:id="materias_columna_lunes_salon" />
+          </columns>
+        </TableColumn>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Martes">
+          <columns>
+            <TableColumn prefWidth="42.0" text="Inicio" fx:id="materias_columna_martes_inicio" />
+            <TableColumn prefWidth="42.0" text="Fin" fx:id="materias_columna_martes_fin" />
+            <TableColumn prefWidth="41.0" text="Salón" fx:id="materias_columna_martes_salon" />
+          </columns>
+        </TableColumn>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Miércoles">
+          <columns>
+            <TableColumn prefWidth="42.0" text="Inicio" fx:id="materias_columna_miercoles_inicio" />
+            <TableColumn prefWidth="42.0" text="Fin" fx:id="materias_columna_miercoles_fin" />
+            <TableColumn prefWidth="41.0" text="Salón" fx:id="materias_columna_miercoles_salon" />
+          </columns>
+        </TableColumn>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Jueves">
+          <columns>
+            <TableColumn prefWidth="42.0" text="Inicio" fx:id="materias_columna_jueves_inicio" />
+            <TableColumn prefWidth="42.0" text="Fin" fx:id="materias_columna_jueves_fin" />
+            <TableColumn prefWidth="41.0" text="Salón" fx:id="materias_columna_jueves_salon" />
+          </columns>
+        </TableColumn>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Viernes">
+          <columns>
+            <TableColumn prefWidth="42.0" text="Inicio" fx:id="materias_columna_viernes_inicio" />
+            <TableColumn prefWidth="42.0" text="Fin" fx:id="materias_columna_viernes_fin" />
+            <TableColumn prefWidth="41.0" text="Salón" fx:id="materias_columna_viernes_salon" />
+          </columns>
+        </TableColumn>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Sábado">
+          <columns>
+            <TableColumn prefWidth="42.0" text="Inicio" fx:id="materias_columna_sabado_inicio" />
+            <TableColumn prefWidth="42.0" text="Fin" fx:id="materias_columna_sabado_fin" />
+            <TableColumn prefWidth="40.0" text="Salón" fx:id="materias_columna_sabado_salon" />
+          </columns>
+        </TableColumn>
+      </columns>
+    </TableView>
+    <Button id="boton_agregar" fx:id="boton_agregar_horario" layoutX="175.0" layoutY="495.0" mnemonicParsing="false" onAction="#agregar_horario" prefWidth="230.0" text="Agregar horario" textFill="$x1">
+      <font>
+        <Font name="Arial Bold" size="18.0" fx:id="x3" />
+      </font>
+    </Button>
+    <Button id="boton_editar" fx:id="boton_editar_horario" font="$x3" layoutX="703.0" layoutY="120.0" mnemonicParsing="false" onAction="#modificar_horario" prefWidth="124.9998779296875" text="Editar" textFill="$x1" />
+    <Button id="boton_eliminar" fx:id="boton_eliminar_horario" font="$x3" layoutX="925.0" layoutY="120.0" mnemonicParsing="false" onAction="#eliminar_horario" prefWidth="125.0" text="Eliminar" textFill="$x1" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#28ad57" height="15.0" layoutX="0.0" layoutY="560.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1101.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="25.0" layoutX="0.0" layoutY="584.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1101.0" />
+    <Button id="boton_inicio" fx:id="boton_regresar" layoutX="50.0" layoutY="16.0" mnemonicParsing="false" onAction="#abrirVentanaMaterias" prefWidth="125.0" text="Regresar">
+      <font>
+        <Font name="Times New Roman Bold" size="18.0" fx:id="x6" />
+      </font>
+    </Button>
+    <TitledPane animated="false" layoutX="550.0" layoutY="368.0" prefHeight="185.0" prefWidth="346.9999000000025" text="Agregar Día al horario">
+      <content>
+        <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="140.0" prefWidth="309.0">
+          <children>
+            <Label layoutX="14.0" layoutY="14.0" prefWidth="150.0" text="Día:">
+              <font>
+                <Font name="Times New Roman" size="18.0" fx:id="x2" />
+              </font>
+            </Label>
+            <Label font="$x2" layoutX="14.0" layoutY="44.0" prefWidth="150.0" text="Hora de inicio:" />
+            <Label font="$x2" layoutX="14.0" layoutY="75.0" prefWidth="150.0" text="Hora de fin:" />
+            <Label font="$x2" layoutX="14.0" layoutY="105.0" prefWidth="150.0" text="Salón" />
+            <ComboBox fx:id="comboBox_dias" layoutX="179.0" layoutY="14.0" prefHeight="21.0" prefWidth="150.0">
+              <items>
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="Item 1" />
+                  <String fx:value="Item 2" />
+                  <String fx:value="Item 3" />
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <TextField fx:id="tf_hora_inicio" layoutX="179.0" layoutY="44.0" prefWidth="150.0" />
+            <TextField fx:id="tf_hora_fin" layoutX="179.0" layoutY="75.0" prefWidth="150.0" />
+            <TextField fx:id="tf_salon" layoutX="179.0" layoutY="105.0" prefWidth="150.0" />
+            <Label id="label_dia" fx:id="label_campos_dia" layoutX="22.0" layoutY="132.0" prefWidth="300.0" text="" textAlignment="LEFT" wrapText="true">
+              <font>
+                <Font name="System Bold Italic" size="12.0" fx:id="x4" />
+              </font>
+              <textFill>
+                <Color blue="0.000" green="0.000" red="0.800" fx:id="x5" />
+              </textFill>
+            </Label>
+          </children>
+        </AnchorPane>
+      </content>
+    </TitledPane>
+    <Button id="boton_eliminar" fx:id="boton_agregar_dia" font="$x3" layoutX="900.0" layoutY="422.0" mnemonicParsing="false" onAction="#agregar_dia" prefWidth="150.0" text="Agregar día" textFill="$x1" />
+    <Label font="$x2" layoutX="50.0" layoutY="408.0" text="Profesor:" />
+    <TextField fx:id="tf_profesor" layoutX="133.0" layoutY="408.0" prefHeight="-1.0" prefWidth="363.0" />
+    <Label font="$x2" layoutX="50.0" layoutY="436.0" text="NRC:" />
+    <TextField fx:id="tf_nrc" layoutX="133.0" layoutY="437.0" prefHeight="-1.0" prefWidth="80.0" />
+    <Label fx:id="label_campos_horario" font="$x4" layoutX="271.0" layoutY="440.0" prefWidth="225.0" text="" textFill="$x5" />
+    <Button id="boton_eliminar" fx:id="boton_eliminar_dia" font="$x3" layoutX="900.0" layoutY="498.0" mnemonicParsing="false" onAction="#eliminar_dia" prefWidth="150.0" text="Eliminar día" textFill="$x1" />
+    <Label id="label__experencia_educativa" fx:id="label_experiencia_educativa" layoutX="50.0" layoutY="115.0" prefHeight="40.0" prefWidth="600.0" text="" textFill="#0c0099" underline="false">
+      <font>
+        <Font name="Times New Roman Bold" size="20.0" />
+      </font>
+    </Label>
+  </children>
+</AnchorPane>

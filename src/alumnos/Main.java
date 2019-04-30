@@ -8,8 +8,11 @@ package alumnos;
 import alumnos.controladores.FXMLAlumnosController;
 import alumnos.controladores.FXMLMateriasController;
 import alumnos.controladores.FXMLPrincipalController;
+import alumnos.modelos.HorarioMateria;
 import java.io.IOException;
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,7 +23,17 @@ public class Main extends Application {
   private Stage stage_principal;
   private Parent root;
   
+  private static ObservableList<HorarioMateria> horarios = FXCollections.observableArrayList();
+  
   public Main(){}
+  
+  public void setHorariosMaterias(ObservableList<HorarioMateria> horarios){
+    Main.horarios=horarios;
+  }
+  
+  public ObservableList<HorarioMateria> getHorariosMaterias(){
+    return Main.horarios;
+  }
   
   public void mostrarVentanaPrincipal(){
     try {
@@ -70,7 +83,6 @@ public class Main extends Application {
             ventana_materias.show();
         } catch (IOException e) {
           System.out.println("No se encuentra el archivo de la interfaz");
-          System.out.println(e);
         }
   }
   

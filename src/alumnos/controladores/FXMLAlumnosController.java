@@ -9,6 +9,7 @@ import alumnos.modelos.Alumno;
 import alumnos.DAO.Alumnos.AlumnosDAO;
 import alumnos.Main;
 import alumnos.servicios.Conexion;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -24,12 +25,16 @@ import javafx.scene.control.TableView;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SelectionMode;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
@@ -109,6 +114,8 @@ public class FXMLAlumnosController implements Initializable {
   private Font x6;
   @FXML
   private Button boton_materias;
+  @FXML
+  private Button boton_horario;
 
   private Main principal;
   private final AlumnosDAO sql_alumnos = new AlumnosDAO();
@@ -379,6 +386,30 @@ public class FXMLAlumnosController implements Initializable {
     principal.mostrarVentanaMaterias();
     stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
     stage.close();
+  }
+
+  @FXML
+  private void abrirVentanaHorario(ActionEvent event) {
+    if (tabla_alumnos.getSelectionModel().isEmpty()) {
+      return;
+    }
+    stage = (Stage) ((Button) event.getSource()).getScene().getWindow();
+    try {
+            FXMLLoader loader = new FXMLLoader(principal.getClass().getResource("interfaces/FXMLHorarioAlumno.fxml"));
+            Parent p_horarios = loader.load();
+            Scene scene = new Scene(p_horarios);
+            Stage ventana_horario=new Stage();
+            ventana_horario.setTitle("Horario del Alumno");
+            ventana_horario.setScene(scene);
+            ventana_horario.initModality(Modality.WINDOW_MODAL);
+            ventana_horario.initOwner(stage);
+            FXMLHorarioAlumnoController controlador = loader.getController();
+            controlador.setAlumno(tabla_alumnos.getSelectionModel().getSelectedItem());
+            ventana_horario.show();
+        } catch (IOException e) {
+          System.out.println(e);
+          System.out.println("No se encuentra el archivo de la interfaz");
+        }
   }
 
 }

@@ -33,40 +33,41 @@ public class MateriasDAO implements IMateriasDAO{
    */
   @Override
    public ObservableList<Materia> crearLista(Connection conexion){
-      ObservableList<Materia> experencias_educativas = FXCollections.observableArrayList();
+      ObservableList<Materia> experiencias_educativas = FXCollections.observableArrayList();
       try{
          PreparedStatement consulta = conexion.prepareStatement("SELECT* FROM " + this.tabla
-                 + " ORDER BY nombre");
+                 + " ORDER BY Id_materia");
          ResultSet resultado = consulta.executeQuery();
          while(resultado.next()){
-            experencias_educativas.add(new Materia(resultado.getString("nombre"), 
+            experiencias_educativas.add(new Materia(resultado.getInt("id_materia"), 
+                    resultado.getString("nombre"), 
                     resultado.getInt("horas_teoria"), resultado.getInt("horas_practica"), 
-                    resultado.getInt("creditos"), resultado.getInt("nrc")));
+                    resultado.getInt("creditos")));
          }
       }catch(SQLException ex){
         System.out.println("Error al cargar los datos de la tabla");
          System.out.print(ex);
       }
-      return experencias_educativas;
+      return experiencias_educativas;
    }
   
   /**
    *
-   * @param experencias_educativas
+   * @param experiencias_educativas
    * @param conexion
    */
   @Override
-   public void guardarLista(ObservableList<Materia> experencias_educativas, Connection conexion){
+   public void guardarLista(ObservableList<Materia> experiencias_educativas, Connection conexion){
+     this.eliminarTabla(conexion);
      try{
-       eliminarTabla(conexion);
          PreparedStatement guardar = conexion.prepareStatement("insert into " + this.tabla
-                 + "(nombre, horas_teoria, horas_practica, creditos, nrc) values (?, ?, ?, ?, ?)");
-         for(int i=0; i<experencias_educativas.size(); i++){
-           guardar.setString(1, experencias_educativas.get(i).getNombre());
-           guardar.setInt(2, experencias_educativas.get(i).getHoras_teoria());
-           guardar.setInt(3, experencias_educativas.get(i).getHoras_practica());
-           guardar.setInt(4, experencias_educativas.get(i).getCreditos());
-           guardar.setInt(5, experencias_educativas.get(i).getNrc());
+                 + " values (?, ?, ?, ?, ?)");
+         for(int i=0; i<experiencias_educativas.size(); i++){
+           guardar.setInt(1, experiencias_educativas.get(i).getId_materia());
+           guardar.setString(2, experiencias_educativas.get(i).getNombre());
+           guardar.setInt(3, experiencias_educativas.get(i).getHoras_teoria());
+           guardar.setInt(4, experiencias_educativas.get(i).getHoras_practica());
+           guardar.setInt(5, experiencias_educativas.get(i).getCreditos());
            guardar.executeUpdate();
          }
       }catch(SQLException ex){
@@ -85,7 +86,7 @@ public class MateriasDAO implements IMateriasDAO{
          PreparedStatement eliminar = conexion.prepareStatement("DELETE FROM "+this.tabla);
          eliminar.executeUpdate();
       }catch(SQLException ex){
-        System.out.println("Error al eliminar los registros de la tabla");
+        System.out.println("Error al eliminar los registros de la tabla materias");
          System.out.print(ex);
       }
    }

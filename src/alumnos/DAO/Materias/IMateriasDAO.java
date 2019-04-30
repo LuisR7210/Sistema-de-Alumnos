@@ -38,9 +38,9 @@ public interface IMateriasDAO {
 
   /**
    *
-   * @param experencias_educativas
+   * @param experiencias_educativas
    * @param conexion
    */
-  public void guardarLista(ObservableList<Materia> experencias_educativas, Connection conexion);
+  public void guardarLista(ObservableList<Materia> experiencias_educativas, Connection conexion);
   
 }

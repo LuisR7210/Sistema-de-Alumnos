@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.collections.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="1100.0" visible="true" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="alumnos.controladores.FXMLHorarioAlumnoController">
+  <children>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="609.0" layoutX="1.0" layoutY="0.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" width="1101.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" height="50.0" layoutX="0.0" layoutY="61.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1101.0">
+      <fill>
+        <Color blue="0.616" green="0.322" red="0.094" fx:id="x1" />
+      </fill>
+    </Rectangle>
+    <Label layoutX="340.0" layoutY="61.0" text="Horario del Alumno" textFill="WHITE">
+      <font>
+        <Font name="Bauhaus 93" size="50.0" />
+      </font>
+    </Label>
+    <TableView id="tabla_alumnos" fx:id="tabla_horario_alumno" layoutX="10.0" layoutY="352.0" prefHeight="200.0" prefWidth="1080.0">
+      <columns>
+        <TableColumn prefWidth="45.0" text="NRC" fx:id="horario_columna_nrc" />
+        <TableColumn prefWidth="204.0" text="Experiencia educativa" fx:id="horario_columna_nombre" />
+        <TableColumn editable="true" maxWidth="5000.0" minWidth="10.0" prefWidth="200.0" sortType="ASCENDING" sortable="true" text="Profesor" fx:id="horario_columna_profesor" />
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Lunes">
+          <columns>
+            <TableColumn prefWidth="35.0" text="Inicio" fx:id="horario_columna_lunes_inicio" />
+            <TableColumn prefWidth="35.0" text="Fin" fx:id="horario_columna_lunes_fin" />
+            <TableColumn prefWidth="35.0" text="Salón" fx:id="horario_columna_lunes_salon" />
+          </columns>
+        </TableColumn>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Martes">
+          <columns>
+            <TableColumn prefWidth="35.0" text="Inicio" fx:id="horario_columna_martes_inicio" />
+            <TableColumn prefWidth="35.0" text="Fin" fx:id="horario_columna_martes_fin" />
+            <TableColumn prefWidth="35.0" text="Salón" fx:id="horario_columna_martes_salon" />
+          </columns>
+        </TableColumn>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Miércoles">
+          <columns>
+            <TableColumn prefWidth="35.0" text="Inicio" fx:id="horario_columna_miercoles_inicio" />
+            <TableColumn prefWidth="35.0" text="Fin" fx:id="horario_columna_miercoles_fin" />
+            <TableColumn prefWidth="35.0" text="Salón" fx:id="horario_columna_miercoles_salon" />
+          </columns>
+        </TableColumn>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Jueves">
+          <columns>
+            <TableColumn prefWidth="35.0" text="Inicio" fx:id="horario_columna_jueves_inicio" />
+            <TableColumn prefWidth="35.0" text="Fin" fx:id="horario_columna_jueves_fin" />
+            <TableColumn prefWidth="35.0" text="Salón" fx:id="horario_columna_jueves_salon" />
+          </columns>
+        </TableColumn>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Viernes">
+          <columns>
+            <TableColumn prefWidth="35.0" text="Inicio" fx:id="horario_columna_viernes_inicio" />
+            <TableColumn prefWidth="35.0" text="Fin" fx:id="horario_columna_viernes_fin" />
+            <TableColumn prefWidth="35.0" text="Salón" fx:id="horario_columna_viernes_salon" />
+          </columns>
+        </TableColumn>
+        <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Sábado">
+          <columns>
+            <TableColumn prefWidth="35.0" text="Inicio" fx:id="horario_columna_sabado_inicio" />
+            <TableColumn prefWidth="35.0" text="Fin" fx:id="horario_columna_sabado_fin" />
+            <TableColumn prefWidth="35.0" text="Salón" fx:id="horario_columna_sabado_salon" />
+          </columns>
+        </TableColumn>
+      </columns>
+    </TableView>
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#28ad57" height="15.0" layoutX="0.0" layoutY="560.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1101.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="25.0" layoutX="0.0" layoutY="584.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1101.0" />
+    <Button id="boton_inicio" fx:id="boton_regresar" layoutX="50.0" layoutY="16.0" mnemonicParsing="false" onAction="#abrirVentanaMaterias" prefWidth="125.0" text="Regresar">
+      <font>
+        <Font name="Times New Roman Bold" size="18.0" fx:id="x6" />
+      </font>
+    </Button>
+    <Pane fx:id="pane_horario_alumno" disable="false" layoutX="50.0" layoutY="120.0" prefHeight="220.0" prefWidth="1000.0" visible="true">
+      <children>
+        <Label id="label__experencia_educativa" fx:id="label_alumno" layoutX="200.0" layoutY="21.0" prefHeight="40.0" prefWidth="600.0" text="" textFill="#0c0099" underline="false">
+          <font>
+            <Font name="Times New Roman Bold" size="20.0" />
+          </font>
+        </Label>
+        <Button id="boton_eliminar" fx:id="boton_agregar_materia" layoutX="0.0" layoutY="185.0" mnemonicParsing="false" onAction="#mostrarPaneMaterias" prefWidth="200.0" text="Agregar materia" textFill="$x1">
+          <font>
+            <Font name="Arial Bold" size="18.0" fx:id="x3" />
+          </font>
+        </Button>
+        <Button id="boton_eliminar" fx:id="boton_eliminar_materia" font="$x3" layoutX="401.0" layoutY="185.0" mnemonicParsing="false" onAction="#eliminarMateria" prefWidth="200.0" text="Eliminar materia" textFill="$x1" />
+        <Button id="boton_eliminar" fx:id="boton_finalizar_horario" font="$x3" layoutX="800.0" layoutY="185.0" mnemonicParsing="false" onAction="#finalizarHorario" prefWidth="200.0" text="Finalizar horario" textFill="$x1" />
+        <Label layoutX="800.0" layoutY="126.0" text="Créditos cargados:">
+          <font>
+            <Font name="Times New Roman" size="14.0" fx:id="x2" />
+          </font>
+        </Label>
+        <Label layoutX="946.0" layoutY="92.0" prefWidth="19.999900000002526" text="60">
+          <font>
+            <Font name="Times New Roman" size="16.0" fx:id="x4" />
+          </font>
+        </Label>
+        <Label font="$x2" layoutX="800.0" layoutY="93.0" text="Máximo de créditos:" />
+        <Label fx:id="label_creditos" font="$x4" layoutX="946.0" layoutY="125.0" prefWidth="20.0" text="" />
+      </children>
+    </Pane>
+    <Pane fx:id="pane_materias" disable="false" layoutX="50.0" layoutY="120.0" prefHeight="220.0" prefWidth="1000.0" visible="true">
+      <children>
+        <TableView id="tabla_alumnos" fx:id="tabla_materias" layoutX="14.0" layoutY="10.0" prefHeight="200.0" prefWidth="580.0">
+          <columns>
+            <TableColumn editable="true" maxWidth="5000.0" minWidth="10.0" prefWidth="279.0" sortType="ASCENDING" sortable="true" text="Nombre" fx:id="materias_columna_nombre" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="100.0" sortable="true" text="Horas teoría" fx:id="materias_columna_horas_teoria" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="100.0" sortable="true" text="Horas práctica" fx:id="materias_columna_horas_practica" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="100.0" sortable="true" text="Créditos" fx:id="materias_columna_creditos" />
+          </columns>
+        </TableView>
+        <Button id="boton_eliminar" fx:id="boton_ver_horarios" font="$x3" layoutX="710.0" layoutY="47.0" mnemonicParsing="false" onAction="#mostrarPaneHorariosMateria" prefWidth="200.0" text="Ver horarios" textFill="$x1" />
+        <Button id="boton_eliminar" fx:id="boton_regresar_pane_horario" font="$x3" layoutX="710.0" layoutY="148.0" mnemonicParsing="false" onAction="#mostrarPaneHorarioRegreso" prefWidth="200.0" text="Regresar" textFill="$x1" />
+      </children>
+    </Pane>
+    <Pane id="pane_Horarios_Materia" fx:id="pane_horarios_materia" disable="false" layoutX="50.0" layoutY="120.0" prefHeight="220.0" prefWidth="1020.0" visible="true">
+      <children>
+        <TableView id="tabla_alumnos" fx:id="tabla_horarios_materia" layoutX="7.0" layoutY="14.0" prefHeight="200.0" prefWidth="876.0">
+          <columns>
+            <TableColumn prefWidth="45.0" text="NRC" fx:id="horariosmateria_columna_nrc" />
+            <TableColumn editable="true" maxWidth="5000.0" minWidth="10.0" prefWidth="200.0" sortType="ASCENDING" sortable="true" text="Profesor" fx:id="horariosmateria_columna_profesor" />
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Lunes">
+              <columns>
+                <TableColumn prefWidth="35.0" text="Inicio" fx:id="horariosmateria_columna_lunes_inicio" />
+                <TableColumn prefWidth="35.0" text="Fin" fx:id="horariosmateria_columna_lunes_fin" />
+                <TableColumn prefWidth="35.0" text="Salón" fx:id="horariosmateria_columna_lunes_salon" />
+              </columns>
+            </TableColumn>
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Martes">
+              <columns>
+                <TableColumn prefWidth="35.0" text="Inicio" fx:id="horariosmateria_columna_martes_inicio" />
+                <TableColumn prefWidth="35.0" text="Fin" fx:id="horariosmateria_columna_martes_fin" />
+                <TableColumn prefWidth="35.0" text="Salón" fx:id="horariosmateria_columna_martes_salon" />
+              </columns>
+            </TableColumn>
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Miércoles">
+              <columns>
+                <TableColumn prefWidth="35.0" text="Inicio" fx:id="horariosmateria_columna_miercoles_inicio" />
+                <TableColumn prefWidth="35.0" text="Fin" fx:id="horariosmateria_columna_miercoles_fin" />
+                <TableColumn prefWidth="35.0" text="Salón" fx:id="horariosmateria_columna_miercoles_salon" />
+              </columns>
+            </TableColumn>
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Jueves">
+              <columns>
+                <TableColumn prefWidth="35.0" text="Inicio" fx:id="horariosmateria_columna_jueves_inicio" />
+                <TableColumn prefWidth="35.0" text="Fin" fx:id="horariosmateria_columna_jueves_fin" />
+                <TableColumn prefWidth="35.0" text="Salón" fx:id="horariosmateria_columna_jueves_salon" />
+              </columns>
+            </TableColumn>
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Viernes">
+              <columns>
+                <TableColumn prefWidth="35.0" text="Inicio" fx:id="horariosmateria_columna_viernes_inicio" />
+                <TableColumn prefWidth="35.0" text="Fin" fx:id="horariosmateria_columna_viernes_fin" />
+                <TableColumn prefWidth="35.0" text="Salón" fx:id="horariosmateria_columna_viernes_salon" />
+              </columns>
+            </TableColumn>
+            <TableColumn maxWidth="5000.0" minWidth="10.0" prefWidth="125.0" sortable="true" text="Sábado">
+              <columns>
+                <TableColumn prefWidth="35.0" text="Inicio" fx:id="horariosmateria_columna_sabado_inicio" />
+                <TableColumn prefWidth="35.0" text="Fin" fx:id="horariosmateria_columna_sabado_fin" />
+                <TableColumn prefWidth="35.0" text="Salón" fx:id="horariosmateria_columna_sabado_salon" />
+              </columns>
+            </TableColumn>
+          </columns>
+        </TableView>
+        <Button id="boton_eliminar" fx:id="boton_incluir" font="$x3" layoutX="893.0" layoutY="68.0" mnemonicParsing="false" onAction="#incluirHorarioMateria" prefWidth="110.0" text="Incluir" textFill="$x1" />
+        <Button id="boton_eliminar" fx:id="boton_regresar_pane_materias" font="$x3" layoutX="893.0" layoutY="164.0" mnemonicParsing="false" onAction="#mostrarPaneMateriasRegreso" prefWidth="110.0" text="Regresar" textFill="$x1" />
+      </children>
+    </Pane>
+  </children>
+</AnchorPane>

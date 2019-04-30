@@ -5,6 +5,7 @@
  */
 package alumnos.modelos;
 
+import java.util.concurrent.atomic.AtomicInteger;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -20,20 +21,43 @@ import javafx.beans.property.SimpleStringProperty;
  */
 public class Materia {
 
+  private static AtomicInteger CONTADOR = new AtomicInteger(0);
+  private int id_materia;
   private final SimpleStringProperty nombre;
   private final SimpleIntegerProperty horas_teoria;
   private final SimpleIntegerProperty horas_practica;
   private final SimpleIntegerProperty creditos;
-  private final SimpleIntegerProperty nrc;
 
-  public Materia(String nombre, Integer horas_teoria, Integer horas_practica, Integer creditos, Integer nrc) {
+  public Materia(int id_materia, String nombre, Integer horas_teoria, Integer horas_practica,
+          Integer creditos) {
+    this.id_materia=id_materia;
     this.nombre = new SimpleStringProperty(nombre);
     this.horas_teoria = new SimpleIntegerProperty(horas_teoria);
     this.horas_practica = new SimpleIntegerProperty(horas_practica);
     this.creditos = new SimpleIntegerProperty(creditos);
-    this.nrc = new SimpleIntegerProperty(nrc);
   }
-
+  
+  public Materia(String nombre, Integer horas_teoria, Integer horas_practica,
+          Integer creditos) {
+    this.id_materia=CONTADOR.incrementAndGet();
+    this.nombre = new SimpleStringProperty(nombre);
+    this.horas_teoria = new SimpleIntegerProperty(horas_teoria);
+    this.horas_practica = new SimpleIntegerProperty(horas_practica);
+    this.creditos = new SimpleIntegerProperty(creditos);
+  }
+  
+  public void setId_materia(int id){
+    id_materia=id;
+  }
+  
+  public void setId_materia_autoincremental(){
+    id_materia=CONTADOR.incrementAndGet();
+  }
+  
+  public int getId_materia(){
+    return id_materia;
+  }
+  
   public String getNombre() {
     return nombre.get();
   }
@@ -66,18 +90,10 @@ public class Materia {
     return creditos;
   }
 
-  public Integer getNrc(){
-    return nrc.get();
-  }
-  
-  public SimpleIntegerProperty getNrcProperty() {
-    return nrc;
-  }
-
   
   @Override
   public String toString() {
-    return nombre.get() + " " + horas_teoria.get() + " " + horas_practica.get() + " " + creditos + " " + nrc;
+    return nombre.get() + " " + horas_teoria.get() + " " + horas_practica.get() + " " + creditos.get();
   }
 
 }

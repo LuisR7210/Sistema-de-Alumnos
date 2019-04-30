@@ -55,8 +55,8 @@
     <Label font="$x2" layoutX="732.0" layoutY="419.0" text="Apellido materno:" />
     <TextField fx:id="tf_materno" layoutX="732.0" layoutY="444.0" prefHeight="29.0" prefWidth="306.0" />
     <Button fx:id="boton_agregar" font="$x3" layoutX="823.0" layoutY="504.0" mnemonicParsing="false" onAction="#agregar" prefWidth="125.0" text="Agregar" textFill="$x1" />
-    <Button fx:id="boton_editar" font="$x3" layoutX="164.0" layoutY="504.0" mnemonicParsing="false" onAction="#modificar" prefWidth="125.0" text="Editar" textFill="$x1" />
-    <Button fx:id="boton_eliminar" font="$x3" layoutX="466.0" layoutY="504.0" mnemonicParsing="false" onAction="#eliminar" prefWidth="125.0" text="Eliminar" textFill="$x1" />
+    <Button fx:id="boton_editar" font="$x3" layoutX="318.0" layoutY="504.0" mnemonicParsing="false" onAction="#modificar" prefWidth="125.0" text="Editar" textFill="$x1" />
+    <Button fx:id="boton_eliminar" font="$x3" layoutX="545.0" layoutY="504.0" mnemonicParsing="false" onAction="#eliminar" prefWidth="125.0" text="Eliminar" textFill="$x1" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="25.0" layoutX="-7.0" layoutY="584.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1110.0" />
     <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#28ad57" height="15.0" layoutX="-7.0" layoutY="557.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="1110.0" />
     <Label fx:id="label_matricula" labelFor="$boton_agregar" layoutX="913.0" layoutY="200.0" prefHeight="19.0" prefWidth="125.0" text="" textOverrun="ELLIPSIS">
@@ -87,5 +87,6 @@
       </font>
     </Button>
     <Button fx:id="boton_materias" font="$x6" layoutX="314.0" layoutY="16.0" mnemonicParsing="false" onAction="#abrirVentanaMaterias" prefWidth="125.0" text="Materias" />
+    <Button id="boton_eliminar" fx:id="boton_horario" font="$x3" layoutX="90.0" layoutY="504.0" mnemonicParsing="false" onAction="#abrirVentanaHorario" prefWidth="125.0" text="Horario" textFill="#18529d" />
   </children>
 </AnchorPane>
